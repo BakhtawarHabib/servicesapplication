@@ -1,5 +1,6 @@
 import 'dart:ui';
 import 'package:flutter/material.dart';
+import 'package:servicesapp/Home.dart';
 import 'package:servicesapp/signup.dart';
 
 final Color textcolor = Color(0XFF993052);
@@ -149,7 +150,12 @@ class _LoginScreenState extends State<LoginScreen> {
                   Container(
                       height: 60.0,
                       child: RaisedButton(
-                        onPressed: () {},
+                        onPressed: () {
+                          Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                  builder: (context) => HomeScreen()));
+                        },
                         shape: RoundedRectangleBorder(
                             borderRadius: BorderRadius.circular(80.0)),
                         padding: EdgeInsets.all(0.0),

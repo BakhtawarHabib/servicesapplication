@@ -1,6 +1,7 @@
 import 'dart:ui';
 
 import 'package:flutter/material.dart';
+import 'package:servicesapp/Editprofile..dart';
 import 'package:smooth_star_rating/smooth_star_rating.dart';
 
 import 'Proceedtocart.dart';
@@ -14,6 +15,13 @@ class Profile extends StatefulWidget {
 }
 
 class _ProfileState extends State<Profile> {
+  var items = [
+    'Bridal makeup maximum of - KES, 15000',
+    'Bridesmaid Makeup - KES 2,000',
+    'Simple makeuo with Lashes - KES 1,500',
+    'Simple makeup without Lashes - KES 1,000',
+  ];
+  final TextEditingController _controller = new TextEditingController();
   int _n = 0;
   void add() {
     setState(() {
@@ -51,12 +59,12 @@ class _ProfileState extends State<Profile> {
               Row(
                 children: [
                   SizedBox(
-                    width: 90.0,
+                    width: 120.0,
                   ),
                   Container(
                     alignment: Alignment.center,
-                    height: 200,
-                    width: 200,
+                    height: 170,
+                    width: 170,
                     decoration: BoxDecoration(
                         shape: BoxShape.circle,
                         image: DecorationImage(
@@ -162,25 +170,69 @@ class _ProfileState extends State<Profile> {
                 ),
               ),
               Padding(
-                  padding: EdgeInsets.all(20.0),
-                  child: Column(
+                  padding: EdgeInsets.all(10.0),
+                  child: Container(
+                    decoration: BoxDecoration(
+                      color: Colors.white,
+                    ),
+                    child: new Theme(
+                        data: new ThemeData(
+                          primaryColor: textcolor,
+                          primaryColorDark: textcolor,
+                        ),
+                        child: TextField(
+                          readOnly: true,
+                          controller: _controller,
+                          decoration: InputDecoration(
+                            hintText: "Select makeup categories",
+                            hintStyle: TextStyle(
+                              fontSize: 18,
+                              color: textcolor,
+                            ),
+                            suffixIcon: PopupMenuButton<String>(
+                              icon: const Icon(Icons.arrow_drop_down),
+                              onSelected: (String value) {
+                                _controller.text = value;
+                              },
+                              itemBuilder: (BuildContext context) {
+                                return items
+                                    .map<PopupMenuItem<String>>((String value) {
+                                  return new PopupMenuItem(
+                                      child: new Text(
+                                        value,
+                                        style: TextStyle(color: textcolor),
+                                      ),
+                                      value: value);
+                                }).toList();
+                              },
+                            ),
+                          ),
+                        )),
+                  )),
+              Padding(
+                  padding: EdgeInsets.all(8.0),
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.end,
                     children: [
                       Text(
-                        "Pricing",
+                        "Pricing:",
                         style: TextStyle(
                             color: Colors.white,
                             fontWeight: FontWeight.bold,
-                            fontSize: 22),
+                            fontSize: 20),
                       ),
                       SizedBox(
-                        height: 5.0,
+                        width: 5.0,
                       ),
                       Text(
-                        "100\$- 120\$",
+                        "KES - 2000",
                         style: TextStyle(color: Colors.white, fontSize: 18),
                       ),
                     ],
                   )),
+              SizedBox(
+                height: 30,
+              ),
               Container(
                   margin: EdgeInsets.all(5.0),
                   padding: EdgeInsets.all(10.0),

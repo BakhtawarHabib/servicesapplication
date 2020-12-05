@@ -183,7 +183,7 @@ class _BookingDetailsState extends State<BookingDetails> {
                     width: 65.0,
                   ),
                   Text(
-                    "120\$ - 150\$",
+                    "KES 15,000",
                     style: TextStyle(
                       color: Colors.white,
                       fontWeight: FontWeight.w400,
@@ -265,7 +265,7 @@ class _BookingDetailsState extends State<BookingDetails> {
                 width: 65.0,
               ),
               Text(
-                "120\$ - 150\$",
+                "KES 3,500",
                 style: TextStyle(
                   color: Colors.white,
                   fontWeight: FontWeight.w400,

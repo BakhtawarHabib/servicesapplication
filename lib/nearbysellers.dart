@@ -165,7 +165,7 @@ class _NearbySellerState extends State<NearbySellerScreen> {
                                       fontSize: 18),
                                 ),
                                 Text(
-                                  "100\$- 120\$",
+                                  "KES 15,000",
                                   style: TextStyle(
                                       color: Colors.white,
                                       fontWeight: FontWeight.bold,
